@@ -1,82 +1,32 @@
-const express=require("express");
-const cors=require("cors")
-const multer = require('multer')
+// index.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const db = require('./config/db');
+const doctorRoutes = require('./routes/doctorRoutes');
+const userRoutes = require('./routes/userRoutes');
 
-const storage = multer.memoryStorage();
-const upload = multer({storage:storage});
+const app = express();
 
-// const studmodel = require("./model/student");
-const docmodel = require("./model/signUp");
-// const certmodel = require("./model/certdetails");
-
-const app=new express();
-
-app.use(express.urlencoded ({extended:true}))
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/',(request,response)=> {
-    response.send("hi database")
-})
 
-//for saving doctors data
-app.post('/dnew',(request,response) => {
-    new docmodel(request.body).save();
-    response.send("Record Saved Successfully")
-})
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
-// //for retrieving student data
-// app.get('/sview',async(request,response)=>{
-//     var data=await studmodel.find();
-//     response.send(data)
-// }) 
+// Use userRoutes for handling login
+app.use('/api', userRoutes);
+// Use doctorRoutes
+app.use('/api', doctorRoutes);
 
-// //for update status of student-delete
-// app.put('/updatestatus/:id',async(request,response)=>{
-//     let id=request.params.id
-//     await studmodel.findByIdAndUpdate(id,{$set:{Status:"INACTIVE"}})
-//     response.send("Record Deleted")
-// })
+const PORT = process.env.PORT || 5007;
 
-// //for modifying the details student
-// app.put('/sedit/:id',async(request,response)=>{
-//     let id=request.params.id
-//     await studmodel.findByIdAndUpdate(id,request.body)
-//     response.send("Record Updated")
-// })
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
-// //for saving certificate data
-// app.post('/cnew', upload.single('certphoto'), async (request,response) => {
-//     const { sid, qualification} = request.body
-//     console.log(request.body)
-//     const newdata = new certmodel({
-//         sid,
-//         qualification,
-//         certphoto: {
-//             data: request.file.buffer,
-//             contentType: request.file.mimetype,
-//         }
-//     })
-//     await newdata.save();
-// })
 
-// //retriving certificate data
-// app.get('/cview',async(request,response)=>{
-
-//     const result = await certmodel.aggregate([
-//         {
-//             $lookup:{
-//                 from: 'students',
-//                 localField: 'sid',
-//                 foreignField: '_id',
-//                 as : 'stud'
-//             },
-//         },
-//     ])
-
-//     response.send(result)
-// }) 
-
-app.listen(4005,(request,response)=>{
-    console.log("port is running in 4005")
-})
