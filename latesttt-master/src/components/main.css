@@ -1,4 +1,4 @@
-@import url('font-inter.css');
+ @import url('font-inter.css');
 :root {
   --primarycolor: #bce9e2;
   --primarycolorhover: #bce9e2;
@@ -21,20 +21,20 @@ body{
 
 /*------custom-scroll-bar - from w3schools.com------------------*/
 /* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 5px;
   }
-  
+   */
   /* Track */
-  ::-webkit-scrollbar-track {
+  /* ::-webkit-scrollbar-track {
     background: #f1f1f1; 
-  }
+  } */
    
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+  /* ::-webkit-scrollbar-thumb {
     background: #888; 
     border-radius: 12px;
-  }
+  } */
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
@@ -43,7 +43,7 @@ body{
 
 
 
-
+ 
 
 .input-text{
     border-radius: 4px;
@@ -628,4 +628,4 @@ input[type=search]:focus {
   background-position: 68% 50%;
   background-repeat: no-repeat;
   transition: 0.5s;
-}
+} 

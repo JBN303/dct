@@ -14,6 +14,7 @@ import Dashboard from "./components/Dashboard";
 import Interfac from "./components/Interfac";
 import Myappoinments from "./components/Myappoinments";
 import Sidebar from "./components/Sidebar";
+import Admindash from "./components/Admindash";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
       <Route path='/doctorview' element={<DoctorList />}></Route>
       <Route path='/edit-doctor/:id' element={<EditDoctor />}></Route>
       <Route path='/dash' element={<Dashboard/>}></Route>
-      <Route path='/admindashboard' element={<Interfac/>}></Route>
+      <Route path='/admindashboard' element={<Admindash/>}></Route>
       <Route path='/Myapp' element={<Myappoinments/>}></Route>
 
     </Routes>

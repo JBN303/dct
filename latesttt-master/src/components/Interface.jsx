@@ -1,9 +1,5 @@
 import React from 'react';
-import './animations.css';
-import './main.css';
-// import './index.css';
-import './nav.css';
-import logo1 from '../img/logo.png'
+import { Box, Button, Typography, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function Interface() {
@@ -12,80 +8,67 @@ function Interface() {
   navigate('/admin');
   }
   return (
-    <div className="full-height">
+    <Box className="full-height" sx={{ bgcolor: '#ffff', color: 'white' }}>
       <center>
-        <table border="0">
-          <tbody>
-            <tr>
-              <td width="80%">
-                {/* <span className="edoc-logo">Docere </span>
-                <span className="edoc-logo-sub">| companion</span> */}
-                <img src={logo1} height={100} width={120}></img>
-              </td>
-              {/* <td width="10%">
-                <a href="Loginnav" className="non-style-link"><p className="nav-item">LOGIN</p></a>
-              </td>
-              <td width="10%">
-                <a href="Signnav" className="non-style-link"><p className="nav-item" style={{ paddingRight: '10px' }}>REGISTER</p></a>
-              </td>
-            </tr> */}
-                <button onClick={clickHandle} className="dropbtn non-style-link nav-item" style={{ marginRight:'20px',paddingRight: '10px',marginTop:'35px' }} >ADMIN</button>
-             
-                          <td width="10%">
-                         
-                <div className="dropdown ">
-                  <td>
-                  <button className="dropbtn non-style-link nav-item">LOGIN</button>
-                  </td>
-                  <div className="dropdown-content">
-                    <a href="patient login">PATIENT</a>
-                    <a href="login">DOCTOR</a>
-                  </div>
-                </div>
-              </td>
-              <td width="10%">
-                <div className="dropdown">
-                  <button className="dropbtn dropbtn non-style-link nav-item" style={{ paddingRight: '10px' }} >REGISTER</button>
-                  <div className="dropdown-content">
-                    <a href="patient register">PATIENT</a>
-                    <a href="register">DOCTOR</a>
-                 
-                  </div>
-
-                </div>
-              </td>
-            </tr>
-            
-
-            <tr>
-              <td colSpan="3">
-                <p className="heading-text">Your health is our commitment!</p>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="9">
-                <p className="sub-text2">Connect today and experience healthcare made easy. Whether you need medications, medical advice, or simply want to stay informed about healthcare options in your area, 
-                <br/>we're here to serve you. Your health is our commitment!.</p>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="3">
+        <Table border="0">
+          <TableBody>
+            <TableRow>
+              <TableCell width="80%">
+                <Typography variant="h4" gutterBottom>
+                  Docere | companion
+                </Typography>
+              </TableCell>
+              <TableCell width="10%">
+                <Button variant="outlined" color="primary" onClick={clickHandle} style={{ marginRight: '20px' }}>
+                  ADMIN
+                </Button>
+              </TableCell>
+              <TableCell width="10%">
+                <Button variant="outlined" color="primary">
+                  LOGIN
+                </Button>
+              </TableCell>
+              <TableCell width="10%">
+                <Button variant="outlined" color="primary">
+                  REGISTER
+                </Button>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan="3">
+                <Typography variant="h5" gutterBottom style={{ marginTop: '20px' }}>
+                  Your health is our commitment!
+                </Typography>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan="9">
+                <Typography variant="body1" gutterBottom>
+                  Connect today and experience healthcare made easy. Whether you need medications, medical advice, or simply want to stay informed about healthcare options in your area,
+                  we're here to serve you. Your health is our commitment!.
+                </Typography>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan="3">
                 <center>
-                  <a href="patient login">
-                    <input type="button" value="Make Appointment" className="login-btn btn-primary btn" style={{width:'300px' , paddingLeft: '25px', paddingRight: '2px', paddingTop: '10px', paddingBottom: '10px' }} />
-                  </a>
+                  <Button variant="contained" color="secondary">
+                    Make Appointment
+                  </Button>
                 </center>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="3">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p  className="sub-text2 footer-hashen">DEVELOPED BY ATHUL & JIBIN</p>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan="3">
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+        <Typography variant="body1" gutterBottom style={{ marginTop: '20px' }}>
+          DEVELOPED BY ATHUL & JIBIN
+        </Typography>
       </center>
-    </div>
+    </Box>
   );
 }
 

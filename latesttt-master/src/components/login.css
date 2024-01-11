@@ -1,4 +1,4 @@
-
+/* 
 body{
     margin: 7%;
     background-color: #F6F7FA;
@@ -57,6 +57,7 @@ td{
 }.login-btn{
     background-color: #77d5cb;
     /*margin-top: 15px;*/
+    /*
     margin-bottom: 15px;
     width: 1000%;
-}
+} */

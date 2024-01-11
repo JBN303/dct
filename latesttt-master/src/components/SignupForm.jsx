@@ -1,7 +1,7 @@
 import React from 'react';
-import './animations.css';
-import './main.css';
-import './signup.css';
+// import './animations.css';
+// import './main.css';
+// import './signup.css';
 
 function SignupForm() {
   return (

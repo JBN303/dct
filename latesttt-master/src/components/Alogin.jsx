@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './animations.css';
-import './main.css';
-import './login.css';
+// import './animations.css';
+// import './main.css';
+// import './login.css';
 
 const Alogin = () => {
   const [AdminEmail, setAdminEmail] = useState('');
